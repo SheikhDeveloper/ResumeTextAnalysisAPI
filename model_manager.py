@@ -8,7 +8,7 @@ class ModelManager:
         with open('vectorizer.pickle', 'rb') as f:
             self.vectorizer = pickle.load(f)
         with open('model.pickle', 'rb') as f:
-            model = pickle.load(f)
+            self.model = pickle.load(f)
         self.preprocess = lambda text: ' '.join(WordPunctTokenizer().tokenize(text.lower()))
 
     def get_prediction(text: str) -> str:
@@ -17,6 +17,6 @@ class ModelManager:
         @param text: str - Text of the resume to analyze
         @return: bool - True if the resume is substantive, False otherwise
         '''
-        text = preprocess(text)
-        text = vectorizer.get_tf_idf(text)
-        return model.predict([text])
+        text = self.preprocess(text)
+        text = self.vectorizer.get_tf_idf(text)
+        return self.model.predict([text])
