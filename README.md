@@ -14,9 +14,9 @@ The project is a simple API on Flask with a model (NBC) that analyzes TF-iDF rep
 
 The model is trained using the [TF-IDF](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html) representation of the resume text.
 
-The [dataset](./train/texts.csv) for the model was created using the example phrases from the Internet
+The [dataset](./train/texts.csv) for the model was created using the example phrases in Russian from the Internet.
 
-The model itself represents the [Naive Bayes Classifier](https://en.wikipedia.org/wiki/Naive_Bayes_classifier) on the Multinomial distribution of the features, with the smoothing parameter set to 1.0 (see [scikit-learn documentation](https://scikit-learn.org/stable/modules/naive_bayes.html#multinomial-naive-bayes))
+The model itself represents the [Naive Bayes Classifier](https://en.wikipedia.org/wiki/Naive_Bayes_classifier) on the Multinomial distribution of the features, with the smoothing parameter set to 1.0 (see [scikit-learn documentation](https://scikit-learn.org/stable/modules/naive_bayes.html#multinomial-naive-bayes)).
 
 ## About the API
 
@@ -24,4 +24,4 @@ The API is made with [Flask](https://flask.palletsprojects.com/) and [Flask-REST
 
 It helps you to predict whether the resume is substantive or not.
 
-The description of the API can be found [here](./model.yaml)
+The description of the API can be found [here](./model.yaml).
