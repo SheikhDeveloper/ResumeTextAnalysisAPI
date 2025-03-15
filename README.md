@@ -28,7 +28,7 @@ The model itself represents the [Naive Bayes Classifier](https://en.wikipedia.or
 | Metric | Value |
 | --- | --- |
 | Test Accuracy | 0.93 |
-| ROC-AUC | 1.0 |
+| Test ROC-AUC | 1.0 |
 
 ## About the API
 
