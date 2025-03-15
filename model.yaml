@@ -1,0 +1,36 @@
+openapi: "3.0.0"
+info:
+  title: "Resume text analysis API"
+  version: "1.0.0"
+  description: "API for resume text analysis on whether the text contains substantive information."
+
+servers:
+  - url: "http://127.0.0.1:8000"
+
+paths:
+  /resume_analysis/predict:
+    get:
+      summary: "Returns prediction on whether the text contains substantive information."
+      description: "Predict whether the text contains substantive information."
+      operationId: "resume_analysis"
+      parameters:
+        - name: "text"
+          in: "path"
+          required: true
+          description: "Text to be analyzed."
+          schema:
+            type: "string"
+            example: "This is my resume."
+      responses:
+        200:
+          description: "Returns the prediction on whether the text contains substantive information."
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  prediction:
+                    type: "boolean"
+                    example: "True"
+        400:
+          description: "Invalid request with non-string input."
