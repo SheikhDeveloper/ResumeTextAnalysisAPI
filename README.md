@@ -16,7 +16,7 @@ The model is trained using the [TF-IDF](https://scikit-learn.org/stable/modules/
 
 The [dataset](./train/texts.csv) for the model was created using the example phrases from the Internet
 
-The model itself represents the [Naive Bayes Classifier](https://en.wikipedia.org/wiki/Naive_Bayes_classifier) on the Multinomial distribution, with the smoothing parameter set to 1.0 (see [scikit-learn documentation](https://scikit-learn.org/stable/modules/naive_bayes.html#multinomial-naive-bayes))
+The model itself represents the [Naive Bayes Classifier](https://en.wikipedia.org/wiki/Naive_Bayes_classifier) on the Multinomial distribution of the features, with the smoothing parameter set to 1.0 (see [scikit-learn documentation](https://scikit-learn.org/stable/modules/naive_bayes.html#multinomial-naive-bayes))
 
 ## About the API
 
