@@ -30,12 +30,14 @@ def predict():
             and sends the result to the True Tabs
     '''
     if request.method == 'GET':
+        print("Request received.")
         model_manager = ModelManager()
         json_resp = get(URL, 'datasheets/' + datasheet_id + '/records', headers={'Authorization': 'Bearer ' + token})
         if json_resp['code'] != 200:
             response = make_response(json_resp['message'])
             response.status_code = 400
             return response
+        print("Successful request for input.")
         json_resp = json_resp['data']
         resume_texts = [record['fields']['Что готов дать компании?'][0] for record in json_resp['records']]
         record_ids = [record['recordId'] for record in json_resp['records']]
@@ -54,6 +56,7 @@ def predict():
             response = make_response(resp.json()['message'])
             response.status_code = 400
             return response
+        print("Successful request for changes.")
 
         response = make_response("Success.")
         response.status_code = 200
