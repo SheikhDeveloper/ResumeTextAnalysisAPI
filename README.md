@@ -19,7 +19,7 @@ The project is a simple API on Flask with a model (NBC) that analyzes TF-iDF rep
 
 ## How to use it
 
-1. Upload your resume text to the API
+1. Upload your resume texts list to the API
 2. Get the prediction
 
 ## About the model
