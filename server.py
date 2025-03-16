@@ -2,6 +2,7 @@ import json
 from model_manager import ModelManager
 from flask import Flask, request, make_response
 import requests
+from tf_idf_vectorize import Vectorizer
 
 app = Flask(__name__)
 
@@ -26,19 +27,21 @@ def predict():
     '''
     if request.method == 'GET':
         model_manager = ModelManager()
-        json_resp = get(URL, 'datasheets/' + datasheet_id + '/records', headers={'Authorization': 'Bearer ' + token})['data']
+        json_resp = get(URL, 'datasheets/' + datasheet_id + '/records', headers={'Authorization': 'Bearer ' + token})
         if json_resp['code'] != 200:
             response = make_response(json_resp['message'])
             response.status_code = 400
             return response
-        resume_texts = [record['Что готов дать компании?'] for record in json_resp]
+        json_resp = json_resp['data']
+        resume_texts = [record['fields']['Что готов дать компании?'][0] for record in json_resp['records']]
         try:
             results = model_manager.get_prediction(resume_texts)
+            print(results)
         except TypeError:
             response = make_response("Non-text input.")
             response.status_code = 400
             return response
-        result = json.dumps({'ответ модели': results})
+        result = json.dumps({'ответ модели': ['субъективно' if i == 1 else 'несубъективно' for i in results]})
         headers = {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token}
         resp = requests.patch(URL + 'datasheets/' + datasheet_id + '/records', headers=headers, data=result)
 

@@ -11,7 +11,7 @@ class ModelManager:
             self.model = pickle.load(f)
         self.preprocess = lambda text: ' '.join(WordPunctTokenizer().tokenize(text.lower()))
 
-    def get_prediction(texts: list[str]) -> list[int]:
+    def get_prediction(self, texts: list[str]) -> list[int]:
         '''
         @brief: Analyzes the resume's content and predicts whether it is substantive or not
         @param text: str - Text of the resume to analyze
@@ -19,5 +19,5 @@ class ModelManager:
         '''
         for i in range(len(texts)):
             texts[i] = self.preprocess(texts[i])
-            texts[i] = self.vectorizer.get_tf_idf(texts[i])
+        texts = self.vectorizer.get_tf_idf(texts)
         return self.model.predict(texts).tolist()
