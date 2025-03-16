@@ -8,7 +8,14 @@ The project is a simple API on Flask with a model (NBC) that analyzes TF-iDF rep
 
 1. Clone this repo
 2. `pip install -r requirements.txt`
+
+#### without gunicorn
+
 3. `python3 server.py`
+
+#### with gunicorn
+
+3. `gunicorn --bind 0.0.0.0:5000 server:app`
 
 ## How to use it
 
