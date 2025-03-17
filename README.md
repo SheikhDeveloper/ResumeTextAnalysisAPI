@@ -2,7 +2,7 @@
 
 ## About the project
 
-The project is a simple API on Flask with a model (NBC) that analyzes TF-iDF representation of the resume text and predicts whether it is substantive. It was created for the [case competition from Changellenge](https://changellenge.com/championships/changellenge-cup-it-2025/?utm_source=cl-site&utm_medium=main&utm_campaign=slider) for the B2B analytics case solution from team HotimIT.
+The project is a fully-integrated into MTS True Tabs API on Flask with a model (NBC) that analyzes TF-iDF representation of the resume text and predicts whether it is substantive. It was created for the [case competition from Changellenge](https://changellenge.com/championships/changellenge-cup-it-2025/?utm_source=cl-site&utm_medium=main&utm_campaign=slider) for the B2B analytics case solution from team HotimIT.
 
 ## How to start it
 
