@@ -10,27 +10,19 @@ servers:
 paths:
   /resume_analysis/predict:
     get:
-      summary: "Returns prediction on whether the text contains substantive information."
+      summary: "Returns prediction on whether the text contains substantive information to the 'ответы модели' field in the True Tabs table."
       description: "Predict whether the text contains substantive information."
       operationId: "resume_analysis"
-      parameters:
-        - name: "text"
-          in: "path"
-          required: true
-          description: "Text to be analyzed."
-          schema:
-            type: "string"
-            example: "This is my resume."
       responses:
         200:
-          description: "Returns the prediction on whether the text contains substantive information."
+          description: "Returns the prediction on whether the text contains substantive information to the 'ответы модели' field in the True Tabs table."
           content:
             application/json:
               schema:
                 type: "object"
                 properties:
                   prediction:
-                    type: "boolean"
-                    example: "True"
+                    type: "string"
+                    example: "Success."
         400:
           description: "Invalid request with non-string input."
