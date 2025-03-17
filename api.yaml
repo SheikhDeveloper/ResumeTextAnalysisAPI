@@ -25,4 +25,4 @@ paths:
                     type: "string"
                     example: "Success."
         400:
-          description: "Invalid request with non-string input."
+          description: "Operation failed."
