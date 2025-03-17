@@ -1,4 +1,4 @@
-# A simple API on Flask with a model (NBC) that analyzes TF-iDF representation of the resume text and predicts whether it is substantive.  
+# A fully-integrated into MTS True Tabs API on Flask with a model (NBC) that analyzes TF-iDF representation of the resume text and predicts whether it is substantive.  
 
 ## About the project
 
@@ -19,8 +19,16 @@ The project is a simple API on Flask with a model (NBC) that analyzes TF-iDF rep
 
 ## How to use it
 
-1. Upload your resume texts list to the API
-2. Get the prediction
+1. Fill the 'Отклик' field in the 'Отклики для hr' table in True Tabs
+2. Get the prediction in the 'ответы модели' field of the table
+
+## How does the pipeline work?
+
+1. The 'Отклик' field in the 'Отклики для hr' table in True Tabs is filled
+2. The GET web request is sent to the Flask API
+3. Flask API gets the 'Отклики для hr' table contents from True Tabs API
+4. Flask API(NBC model) analyzes the resume text
+5. Flask API returns NBC's prediction to the 'ответы модели' field in the 'Отклики для hr' table using True Tabs API
 
 ## About the model
 
